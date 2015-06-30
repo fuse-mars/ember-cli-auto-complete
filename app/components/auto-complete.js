@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 
 	url: '<endpoint>',
 	selectedItem: 'N/A',
-	el: Ember.$('#tags'),
+	el: Ember.$('#tags'), //required element
 
 	didInsertElement: function() {
 		var _this = this;
