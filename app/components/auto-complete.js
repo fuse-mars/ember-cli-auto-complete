@@ -2,17 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-	url: 'http://selfservice.fusemachines.com/clients/autocomplete',
+	url: '<endpoint>',
 	selectedItem: 'N/A',
 	el: Ember.$('#tags'),
 
 	didInsertElement: function() {
 		var _this = this;
-		Ember.$.ajaxSetup({
-			headers: {
-				cid: 'Queens-Diamond_fm'
-			}
-		});
 
 		_this.get('el').autocomplete({
 
@@ -22,6 +17,9 @@ export default Ember.Component.extend({
 				Ember.$.ajax({
 					url: _this.get('url'),
 					type: 'GET',
+					headers:{
+						//your headers go here
+					},
 					data: {
 						'q': request.term
 					},
